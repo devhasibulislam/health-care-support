@@ -54,14 +54,14 @@ const Home = () => {
                 <section className='mt-5'>
                     <h2 className='d-inline-block border-bottom border-3 border-primary mb-4'>What Our Customer Say About Us</h2>
                     <div className='row g-5'>
-                        <div className="col-lg-6 p-3">
+                        <div className="col-lg-6 p-3" style={{ boxShadow: 'border-box' }}>
                             <p>
                                 Health Care Support were all very friendly and helpful. I especially loved how Drs really took his time to explain my conditions with me as well as my treatment options. I had a great visit and the doctor's demeanor has really put me at ease so I highly recommend this clinic.
                             </p>
                             <h4 className='text-primary mb-0'>Sadia Dhira</h4>
                             <h5 className='text-muted'><small>Designer</small></h5>
                         </div>
-                        <div className="col p-3 bg-white shadow">
+                        <div className="col p-3 bg-white shadow" style={{boxShadow: 'border-box'}}>
                             <p>
                                 From his excellent treatment, curiosity, investigative mind and ability to connect, you know where you stand immediately and what next steps look like. Attention doctors if you want a masterclass in watching a doctor bring medical knowledge and build rapport so that message is heard by patient.
                             </p>
