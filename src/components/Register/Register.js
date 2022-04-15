@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Register = () => {
@@ -12,6 +12,7 @@ const Register = () => {
         error
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile] = useUpdateProfile(auth);
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
@@ -40,6 +41,10 @@ const Register = () => {
             </div>
         );
     } */
+
+    if (user) {
+        navigate('/home');
+    }
 
     const handleSubmitRegistrationForm = async (event) => {
         event.preventDefault();
