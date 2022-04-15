@@ -20,6 +20,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [checked, setChecked] = useState(false);
 
     // const nameRef = useRef('');
     // const emailRef = useRef('');
@@ -70,7 +71,7 @@ const Register = () => {
     };
 
     return (
-        <div className='my-5 container mx-auto'>
+        <div className='my-5 container mx-auto vh-100'>
             <h2 className='text-center display-1'>Registration Page!</h2>
             <Form onSubmit={handleSubmitRegistrationForm}>
                 {/* for name */}
@@ -88,9 +89,13 @@ const Register = () => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" onChange={event => setPassword(event.target.value)} />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Accept terms and conditions" onClick={() => setChecked(!checked)}/>
+                </Form.Group>
+                {/* <Button variant="primary" type="submit">
                     Register
-                </Button>
+                </Button> */}
+                <input type="submit" value="Register" className='btn btn-primary' disabled={!checked} />
             </Form>
             <p className='mt-3'>Already have an account? <span role="button">
                 <Link to={'/login'} className='text-primary'>login here</Link>

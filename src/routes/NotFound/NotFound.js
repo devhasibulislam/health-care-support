@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
+        <div className='vh-100 d-flex justify-content-center align-items-center'>
             <h1>404 | Route Not Found!</h1>
         </div>
     );

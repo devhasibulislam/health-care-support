@@ -20,7 +20,7 @@ const Reset = () => {
         console.log(email);
     };
     return (
-        <div className='my-5 container mx-auto'>
+        <div className='my-5 container mx-auto vh-100'>
             <h2 className='text-center display-1'>Reset Page!</h2>
             <Form onSubmit={handleSubmitResetForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">

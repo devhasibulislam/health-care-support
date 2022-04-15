@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -12,9 +12,13 @@ const Login = () => {
     // const emailRef = useRef('');
     // const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
     
     if (user) {
-        navigate('/home');
+        // navigate('/home');
+        navigate(from, { replace: true });
     }
 
     const handleSubmitLoginForm = (event) => {
@@ -28,7 +32,7 @@ const Login = () => {
         console.log(user);
     };
     return (
-        <div className='my-5 container mx-auto'>
+        <div className='my-5 container mx-auto vh-100'>
             <h2 className='text-center display-1'>Login Page!</h2>
             <Form onSubmit={handleSubmitLoginForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
