@@ -4,6 +4,8 @@ import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
     const [
@@ -44,8 +46,8 @@ const Register = () => {
     } */
 
     if (user) {
-        navigate('/login');
         signOut(auth);
+        navigate('/login');
     }
 
     const handleSubmitRegistrationForm = async (event) => {
@@ -57,11 +59,12 @@ const Register = () => {
         // setName(nameRef.current.value);
         // setEmail(emailRef.current.value);
         // setPassword(passwordRef.current.value);
-
+        
         await updateProfile({ displayName: name });
-
+        
         createUserWithEmailAndPassword(email, password);
-
+        
+        toast('verification sent to email!');
         // console.log(email, password, name);
         // console.log(user);
     };
@@ -95,6 +98,7 @@ const Register = () => {
             {loading && <p className='mt-3'>Loading...</p>}
             {error && <p className='mt-3'>Error: {error.message}</p>}
             {/* {user && <p className='mt-3'>Registered User: {user.email}</p>} */}
+            <ToastContainer />
         </div>
     );
 };

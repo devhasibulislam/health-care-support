@@ -1,8 +1,9 @@
-import { async } from '@firebase/util';
 import React, { useRef } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Reset = () => {
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
@@ -11,7 +12,10 @@ const Reset = () => {
         event.preventDefault();
         const email = emailRef.current.value;
 
-        await sendPasswordResetEmail(email);
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast('reset password sent!');
+        }
 
         console.log(email);
     };
@@ -21,7 +25,7 @@ const Reset = () => {
             <Form onSubmit={handleSubmitResetForm}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" />
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
@@ -30,6 +34,7 @@ const Reset = () => {
             </Form>
             {error && <p className='mt-4 text-danger'>{error.message}</p>}
             {sending && <p className='mt-4 text-danger'>sending...</p>}
+            <ToastContainer />
         </div>
     );
 };
