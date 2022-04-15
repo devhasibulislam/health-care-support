@@ -1,3 +1,4 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
@@ -44,6 +45,7 @@ const Register = () => {
 
     if (user) {
         navigate('/login');
+        signOut(auth);
     }
 
     const handleSubmitRegistrationForm = async (event) => {
