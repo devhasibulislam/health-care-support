@@ -65,7 +65,7 @@ const Home = () => {
                             <p>
                                 From his excellent treatment, curiosity, investigative mind and ability to connect, you know where you stand immediately and what next steps look like. Attention doctors if you want a masterclass in watching a doctor bring medical knowledge and build rapport so that message is heard by patient.
                             </p>
-                            <h4 className='text-primary mb-0'>Sabbir Hossain</h4>
+                            <h4 className='text-primary mb-0'>Rayhan Khan</h4>
                             <h5 className='text-muted'><small>Developer</small></h5>
                         </div>
                     </div>

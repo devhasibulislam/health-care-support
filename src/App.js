@@ -7,6 +7,8 @@ import NotFound from './routes/NotFound/NotFound';
 import Services from './routes/Services/Services';
 import Footer from './shared/Footer/Footer';
 import Header from './shared/Header/Header';
+import Register from './components/Register/Register';
+import Reset from './components/Reset/Reset';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/services' element={<Services></Services>}></Route>
         <Route path='/appointment' element={<Appointment></Appointment>}></Route>
-        <Route path='/Login' element={<Login></Login>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/reset' element={<Reset></Reset>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
